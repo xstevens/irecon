@@ -37,7 +37,6 @@ func readPropertyList(plistUrl: URL) -> [String:Any] {
     do {
         let data = try Data(contentsOf:plistUrl)
         plistDict = try PropertyListSerialization.propertyList(from: data, options: [], format: nil) as! [String:Any]
-        // do something with the dictionary
     } catch {
         print(error)
     }
@@ -47,9 +46,6 @@ func readPropertyList(plistUrl: URL) -> [String:Any] {
 
 
 func printPropertyListDict(plistDict: [String:Any]) {
-//    if let jsonData = try? JSONSerialization.data(withJSONObject: plistDict, options: .prettyPrinted) {
-//        print("\(jsonData)")
-//    }
     do {
         let plistData = try PropertyListSerialization.data(fromPropertyList: plistDict, format: PropertyListSerialization.PropertyListFormat.xml, options: 0)
         let xmlString = String(data: plistData, encoding: .utf8)!
@@ -57,7 +53,4 @@ func printPropertyListDict(plistDict: [String:Any]) {
     } catch {
         print(error)
     }
-//    for (k,v) in plistDict {
-//        print("\t\(k.utf8) = \(v)")
-//    }
 }
