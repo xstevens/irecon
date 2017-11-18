@@ -8,6 +8,7 @@
 
 import Foundation
 
+// find all property lists underneath a directory
 func findPropertyLists(baseURL: URL) -> [URL] {
     var plistPaths: [URL] = []
     let fileManager = FileManager.default
@@ -20,7 +21,6 @@ func findPropertyLists(baseURL: URL) -> [URL] {
         for case let fileURL as URL in enumerator {
             let resourceValues = try fileURL.resourceValues(forKeys: Set(resourceKeys))
             if (!resourceValues.isDirectory! && fileURL.path.hasSuffix(".plist")) {
-                print("plist found: \(fileURL.path)")
                 plistPaths.append(fileURL)
             }
         }
@@ -31,7 +31,7 @@ func findPropertyLists(baseURL: URL) -> [URL] {
     return plistPaths
 }
 
-
+// read a property list and return it as a dictionary
 func readPropertyList(plistUrl: URL) -> [String:Any] {
     var plistDict: [String:Any] = [:]
     do {
@@ -44,7 +44,7 @@ func readPropertyList(plistUrl: URL) -> [String:Any] {
     return plistDict
 }
 
-
+// print a property list dictionary in XML format
 func printPropertyListDict(plistDict: [String:Any]) {
     do {
         let plistData = try PropertyListSerialization.data(fromPropertyList: plistDict, format: PropertyListSerialization.PropertyListFormat.xml, options: 0)
