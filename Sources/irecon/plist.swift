@@ -15,7 +15,7 @@ func findPropertyLists(baseURL: URL) -> [URL] {
     do {
         let resourceKeys : [URLResourceKey] = [.creationDateKey, .isDirectoryKey]
         let enumerator = fileManager.enumerator(at: baseURL, includingPropertiesForKeys: resourceKeys, options: [], errorHandler: { (url, error) -> Bool in
-            print("directory enumeration error at \(url): ", error)
+            print("Directory enumeration error at \(url): ", error)
             return true
         })!
         for case let fileURL as URL in enumerator {
@@ -45,7 +45,7 @@ func readPropertyList(plistUrl: URL) -> [String:Any] {
 }
 
 // print a property list dictionary in XML format
-func printPropertyListDict(plistDict: [String:Any]) {
+func printPropertyListDictAsXml(plistDict: [String:Any]) {
     do {
         let plistData = try PropertyListSerialization.data(fromPropertyList: plistDict, format: PropertyListSerialization.PropertyListFormat.xml, options: 0)
         let xmlString = String(data: plistData, encoding: .utf8)!

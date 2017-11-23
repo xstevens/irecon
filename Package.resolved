@@ -2,12 +2,30 @@
   "object": {
     "pins": [
       {
+        "package": "Locksmith",
+        "repositoryURL": "https://github.com/matthewpalmer/Locksmith",
+        "state": {
+          "branch": null,
+          "revision": "49b08bf8fa16ff8d7ce41609a2adbc6b5237f65f",
+          "version": "4.0.0"
+        }
+      },
+      {
         "package": "Rainbow",
         "repositoryURL": "https://github.com/onevcat/Rainbow",
         "state": {
           "branch": null,
           "revision": "dfe579abc72347618e0ffde4faa36fa085c5f3bc",
           "version": "3.0.0"
+        }
+      },
+      {
+        "package": "SQLite.swift",
+        "repositoryURL": "https://github.com/stephencelis/SQLite.swift",
+        "state": {
+          "branch": null,
+          "revision": "1d2eef2570c89dbfa221fc231a8af1148ea234a3",
+          "version": "0.11.4"
         }
       }
     ]
